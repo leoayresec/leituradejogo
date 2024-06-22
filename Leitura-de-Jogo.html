@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitura de Jogo</title>
+    <style>
+		.esquerda {
+			float: left;
+			font-family: Arial, sans-serif;
+			font-size: 25px;
+			font-weight: bold;
+			font color: #213047;
+			float: left;
+		}
+		.direita {
+			
+			font-family: Arial, sans-serif;
+			font-size: 25px;
+			font-weight: bold;
+			font color: #213047;
+			float: right;
+}
+		
+		.esquerda2 {
+			float: left;
+			font-family: Arial, sans-serif;
+			font-size: 15px;
+			font color: #213047;
+			float: left;
+
+		}
+		.esquerda3 {
+			float: left;
+			font-family: Arial, sans-serif;
+			font-size: 20px;
+			font-weight: bold;
+			font color: #213047;
+			float: left;
+	}
+		.direita3 {
+			float: left;
+			font-family: Arial, sans-serif;
+			font-size: 20px;
+			font-weight: bold;
+			font color: #213047;
+			float: right;
+		}
+		.direita2 {
+			font-family: Arial, sans-serif;
+			font-size: 15px;
+			display: inline;
+			font color: #213047;
+			float: right;
+			padding-top: 5px;
+}
+
+		
+		.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  float: left;
+  position: relative;
+}
+
+.menu ul li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Estilo para o submenu dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Mostrar o submenu quando o item de menu é hover */
+.menu ul li:hover .dropdown-content {
+  display: block;
+}
+		
+		
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 10px;
+            background-color: #e5e5e5;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .formation-button {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .formation-image {
+            max-width: 351px;
+            max-height: 497px;
+        }
+
+        textarea {
+            width: 351px;
+            height: 497px;
+            resize: none;
+        }
+
+        label {
+            font-weight: bold;
+			color: #213047;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-group label {
+            margin-right: 10px;
+        }
+		.text{ color: #2125C5 }
+		H2 {
+			color: #213047;
+		}
+    </style>
+</head>
+<body>
+	<!-- Opções de minutos aparecerão aqui 
+    <div class="container">
+		 <div class="column">
+            <label>Topo</label>
+            
+        </div>
+	</div>-->
+	<div class="container">
+        <div class="column">
+            <table width="100%">
+							<tr>
+								<td>
+									<span class="esquerda">Casa</span><br><br>
+									<span class="esquerda2">
+									Time<br><input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									Odd Back <br><input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									Odd Lay <br><input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									</span>
+								</td>
+								<td>
+									<span class="direita">Visitante</span><br><br>
+									<span class="direita2">
+									Time <br><input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									Odd Back <br><input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									Odd Lay <br><input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									</span>
+								</td>
+							</tr>
+						</table>
+			
+			
+      </div>
+		<div class="column">
+			<table width="100%" cellpadding="0" style="padding-top: 0px">
+				<tr>
+					<td width="50%">
+						<span class="esquerda">Analises Pré</span><br><br>
+            			<span class="esquerda2">
+						Btts <br>
+						<input type="text" placeholder="Odd Btts"><br>
+						Over 0.5 HT <br>
+						<input type="text" placeholder="Odd Over 0.5HT"><br>
+						Over 2.5 FT <br>
+						<input type="text" placeholder="Odd Over 2.5FT">
+						</span><br><br><br><br>
+<br>
+
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td>
+									<span class="esquerda">Back</span>
+									<span class="direita2">
+									<select name="Minutagem">
+										<option value="op1">Mercado C. Score</option>
+										<option value="op1">0x0</option>
+										<option value="op2">0x1</option>
+										<option value="op3">0x2</option>
+										<option value="op4">0x3</option>
+										<option value="op1">1x0</option>
+										<option value="op4">1x1</option>
+										<option value="op7">1x3</option>
+										<option value="op8">2x2</option>
+										<option value="op7">2x1</option>
+										<option value="op8">2x2</option>
+										<option value="op8">2x2</option>
+										<option value="op7">3x0</option>
+										<option value="op8">3x1</option>
+										<option value="op8">3x2</option>
+										<option value="op8">3x3</option>
+										<option value="op8">Goleada Casa</option>
+										<option value="op8">Goleada Visitante</option>
+										<option value="op8">QlQ outro Empate</option>
+									</select>
+									<input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									<select name="Minutagem">
+										<option value="op1">Mercado C. Score</option>
+										<option value="op1">0x0</option>
+										<option value="op2">0x1</option>
+										<option value="op3">0x2</option>
+										<option value="op4">0x3</option>
+										<option value="op1">1x0</option>
+										<option value="op4">1x1</option>
+										<option value="op7">1x3</option>
+										<option value="op8">2x2</option>
+										<option value="op7">2x1</option>
+										<option value="op8">2x2</option>
+										<option value="op8">2x2</option>
+										<option value="op7">3x0</option>
+										<option value="op8">3x1</option>
+										<option value="op8">3x2</option>
+										<option value="op8">3x3</option>
+										<option value="op8">Goleada Casa</option>
+										<option value="op8">Goleada Visitante</option>
+										<option value="op8">QlQ outro Empate</option>
+									</select>
+										<input width="20%" type="text" placeholder="Adicionar Odd">
+									<select name="Minutagem">
+										<option value="op1">Mercado C. Score</option>
+										<option value="op1">0x0</option>
+										<option value="op2">0x1</option>
+										<option value="op3">0x2</option>
+										<option value="op4">0x3</option>
+										<option value="op1">1x0</option>
+										<option value="op4">1x1</option>
+										<option value="op7">1x3</option>
+										<option value="op8">2x2</option>
+										<option value="op7">2x1</option>
+										<option value="op8">2x2</option>
+										<option value="op8">2x2</option>
+										<option value="op7">3x0</option>
+										<option value="op8">3x1</option>
+										<option value="op8">3x2</option>
+										<option value="op8">3x3</option>
+										<option value="op8">Goleada Casa</option>
+										<option value="op8">Goleada Visitante</option>
+										<option value="op8">QlQ outro Empate</option>
+									</select>
+										<input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									<select name="Minutagem">
+										<option value="op1">Mercado C. Score</option>
+										<option value="op1">0x0</option>
+										<option value="op2">0x1</option>
+										<option value="op3">0x2</option>
+										<option value="op4">0x3</option>
+										<option value="op1">1x0</option>
+										<option value="op4">1x1</option>
+										<option value="op7">1x3</option>
+										<option value="op8">2x2</option>
+										<option value="op7">2x1</option>
+										<option value="op8">2x2</option>
+										<option value="op8">2x2</option>
+										<option value="op7">3x0</option>
+										<option value="op8">3x1</option>
+										<option value="op8">3x2</option>
+										<option value="op8">3x3</option>
+										<option value="op8">Goleada Casa</option>
+										<option value="op8">Goleada Visitante</option>
+										<option value="op8">QlQ outro Empate</option>
+									</select>
+										<input width="20%" type="text" placeholder="Adicionar Odd">
+									</span>
+								</td>
+								<td>
+									<span class="direita">Lay</span>
+									<span class="direita2">
+									<select name="Minutagem">
+										<option value="op1">Mercado C. Score</option>
+										<option value="op1">0x0</option>
+										<option value="op2">0x1</option>
+										<option value="op3">0x2</option>
+										<option value="op4">0x3</option>
+										<option value="op1">1x0</option>
+										<option value="op4">1x1</option>
+										<option value="op7">1x3</option>
+										<option value="op8">2x2</option>
+										<option value="op7">2x1</option>
+										<option value="op8">2x2</option>
+										<option value="op8">2x2</option>
+										<option value="op7">3x0</option>
+										<option value="op8">3x1</option>
+										<option value="op8">3x2</option>
+										<option value="op8">3x3</option>
+										<option value="op8">Goleada Casa</option>
+										<option value="op8">Goleada Visitante</option>
+										<option value="op8">QlQ outro Empate</option>
+									</select>
+									<input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									<select name="Minutagem">
+										<option value="op1">Mercado C. Score</option>
+										<option value="op1">0x0</option>
+										<option value="op2">0x1</option>
+										<option value="op3">0x2</option>
+										<option value="op4">0x3</option>
+										<option value="op1">1x0</option>
+										<option value="op4">1x1</option>
+										<option value="op7">1x3</option>
+										<option value="op8">2x2</option>
+										<option value="op7">2x1</option>
+										<option value="op8">2x2</option>
+										<option value="op8">2x2</option>
+										<option value="op7">3x0</option>
+										<option value="op8">3x1</option>
+										<option value="op8">3x2</option>
+										<option value="op8">3x3</option>
+										<option value="op8">Goleada Casa</option>
+										<option value="op8">Goleada Visitante</option>
+										<option value="op8">QlQ outro Empate</option>
+									</select>
+										<input width="20%" type="text" placeholder="Adicionar Odd">
+									<select name="Minutagem">
+										<option value="op1">Mercado C. Score</option>
+										<option value="op1">0x0</option>
+										<option value="op2">0x1</option>
+										<option value="op3">0x2</option>
+										<option value="op4">0x3</option>
+										<option value="op1">1x0</option>
+										<option value="op4">1x1</option>
+										<option value="op7">1x3</option>
+										<option value="op8">2x2</option>
+										<option value="op7">2x1</option>
+										<option value="op8">2x2</option>
+										<option value="op8">2x2</option>
+										<option value="op7">3x0</option>
+										<option value="op8">3x1</option>
+										<option value="op8">3x2</option>
+										<option value="op8">3x3</option>
+										<option value="op8">Goleada Casa</option>
+										<option value="op8">Goleada Visitante</option>
+										<option value="op8">QlQ outro Empate</option>
+									</select>
+										<input width="20%" type="text" placeholder="Adicionar Odd"><br>
+									<select name="Minutagem">
+										<option value="op1">Mercado C. Score</option>
+										<option value="op1">0x0</option>
+										<option value="op2">0x1</option>
+										<option value="op3">0x2</option>
+										<option value="op4">0x3</option>
+										<option value="op1">1x0</option>
+										<option value="op4">1x1</option>
+										<option value="op7">1x3</option>
+										<option value="op8">2x2</option>
+										<option value="op7">2x1</option>
+										<option value="op8">2x2</option>
+										<option value="op8">2x2</option>
+										<option value="op7">3x0</option>
+										<option value="op8">3x1</option>
+										<option value="op8">3x2</option>
+										<option value="op8">3x3</option>
+										<option value="op8">Goleada Casa</option>
+										<option value="op8">Goleada Visitante</option>
+										<option value="op8">QlQ outro Empate</option>
+									</select>
+										<input width="20%" type="text" placeholder="Adicionar Odd">
+									</span>
+								</td>
+							</tr>
+						</table>							   
+
+					</td>
+				</tr>
+
+			</table>
+			
+        </div>
+		
+      
+        
+    </div>
+
+    <!-- Mais elementos conforme suas especificações -->
+
+    <div class="container"><br>
+			<div class="column">
+			<nav class="menu" align="center">
+			  <ul>
+				<li class="dropdown">
+				  <a href="#"><strong>Formação Defensiva</strong></a>
+				  <div class="dropdown-content">
+					<a href="formacao/433.html" target="defensiva">4-3-3</a>
+					<a href="formacao/442c.html" target="defensiva">4-4-2 C</a>
+					<a href="formacao/442l.html" target="defensiva">4-4-2 L</a>
+					<a href="formacao/451.html" target="defensiva">4-5-1</a>
+					<a href="formacao/4222.html" target="defensiva">4-2-2-2</a>
+					<a href="formacao/4231.html" target="defensiva">4-2-3-1</a>
+					<a href="formacao/4123.html" target="defensiva">4-1-2-3</a>
+					<a href="formacao/4141.html" target="defensiva">4-1-4-1</a>
+					<a href="formacao/424.html" target="defensiva">4-2-4</a>
+					<a href="formacao/343.html" target="defensiva">3-4-3</a>
+					<a href="formacao/352.html" target="defensiva">3-5-2</a>
+					<a href="formacao/3151.html" target="defensiva">3-1-5-1</a>
+					<a href="formacao/532.html" target="defensiva">5-3-2</a>
+					<a href="formacao/541.html" target="defensiva">5-4-1</a>
+					<a href="formacao/523.html" target="defensiva">5-2-3</a>
+					<a href="formacao/532.html" target="defensiva">5-3-2</a>
+					<a href="formacao/244.html" target="defensiva">2-4-4</a>
+					<a href="formacao/253.html" target="defensiva">2-5-3</a>
+				  </div>
+				</li>
+			  </ul>
+			</nav>	
+            <div align="center">
+					<iframe id="defensiva" width="370px" name="defensiva" height="520px" iframeborder="0"></iframe>
+			</div>
+        	</div>
+	  		<div class="column" align="center">
+			<nav class="menu" align="center">
+			  <ul>
+				<li class="dropdown">
+				  <a href="#"><strong>Formação Ofensiva</strong></a>
+				  <div class="dropdown-content">
+					<a href="formacao/433.html" target="ofensiva">4-3-3</a>
+					<a href="formacao/442c.html" target="ofensiva">4-4-2 C</a>
+					<a href="formacao/442l.html" target="ofensiva">4-4-2 L</a>
+					<a href="formacao/451.html" target="ofensiva">4-5-1</a>
+					<a href="formacao/4222.html" target="ofensiva">4-2-2-2</a>
+					<a href="formacao/4231.html" target="ofensiva">4-2-3-1</a>
+					<a href="formacao/4123.html" target="ofensiva">4-1-2-3</a>
+					<a href="formacao/4141.html" target="ofensiva">4-1-4-1</a>
+					<a href="formacao/424.html" target="ofensiva">4-2-4</a>
+					<a href="formacao/343.html" target="ofensiva">3-4-3</a>
+					<a href="formacao/352.html" target="ofensiva">3-5-2</a>
+					<a href="formacao/3151.html" target="ofensiva">3-1-5-1</a>
+					<a href="formacao/532.html" target="ofensiva">5-3-2</a>
+					<a href="formacao/541.html" target="ofensiva">5-4-1</a>
+					<a href="formacao/523.html" target="ofensiva">5-2-3</a>
+					<a href="formacao/532.html" target="ofensiva">5-3-2</a>
+					<a href="formacao/244.html" target="ofensiva">2-4-4</a>
+					<a href="formacao/253.html" target="ofensiva">2-5-3</a>
+				  </div>
+				</li>
+			  </ul>
+			</nav>
+				<div align="center">
+					<iframe id="ofensiva" width="370px" name="ofensiva" height="520px" iframeborder="0"></iframe>
+				</div>
+        	<div class="formation-button" align="center"></div>
+			</div>
+       
+ 			<div class="column" align="center">
+				<nav class="menu" align="center">
+				  <ul>
+					<li >
+					  <a href="#"><strong>Escalação do Time</strong></a>
+					</li>
+				  </ul>
+				
+            	<textarea placeholder="Digite aqui a escalação do time e algumas observações importantes. Ex.: jogada ensaiada"></textarea>
+				</nav>
+        	</div>
+				
+        
+    </div>
+
+    <!-- Mais elementos conforme suas especificações -->
+
+    
+	<div class="container">	
+      <div class="column">
+            <h2>Saída de bola</h2>
+			<fieldset>
+			  <legend>Selecione mais de 1 opção:</legend>
+			<input type="checkbox" id="chao" name="chao"/>
+   			<label for="chao">Pelo Chão &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <br>   
+    		<input type="checkbox" id="alto" name="alto"/>
+			<label for="alto">  Pelo Alto&nbsp;&nbsp;</label><br>
+			<input type="checkbox" id="lanca" name="lanca"/>
+   			<label for="lanca">Lançamento</label>  	
+			<br>
+		    <input type="checkbox" id="esq" name="esq"/>
+   			<label for="esq">Pela Esquerda</label><br>
+			<input type="checkbox" id="Meio" name="Meio" />
+   			<label for="Meio">  Pelo Meio</label><br>
+			<input type="checkbox" id="direita" name="direita" />
+   			<label for="direita">  Pela Direita</label><br>
+		  </fieldset>
+			<br><br>
+			<input type="text" placeholder="Principal jogador"><br>
+		  	<input type="text" placeholder="Principal Passador"><br>
+		  <p><strong>Importante</strong>: Independentemente do estilo de saída de bola, é importante destacar se a equipe está progredindo confortavelmente ou se está sob pressão da equipe adversária.
+		  </p>
+          <!-- Opções de saída de bola aparecerão aqui -->
+        </div>
+		<div class="column">
+            <h2>Posse de bola</h2>
+			<fieldset>
+			  <legend>Selecione apenas 1 opção:</legend>
+			  <div>
+				<input type="radio" id="huey" name="drone" value="huey" checked />
+				<label for="huey">Defensivo</label>
+			  </div>
+
+			  <div>
+				<input type="radio" id="dewey" name="drone" value="dewey" />
+				<label for="dewey">Ofensivo</label>
+			  </div>
+
+			  <div>
+				<input type="radio" id="louie" name="drone" value="louie" />
+				<label for="louie">Ineficiente</label>
+			  </div>
+			</fieldset>
+			
+			
+			<br><br>
+			<fieldset>
+			  <legend>Selecione apenas 1 opção:</legend>
+
+			  <div>
+				<input type="radio" id="Parcial" name="Controle" value="Parcial" checked />
+				<label for="Parcial">Controle Parcial</label>
+			  </div>
+
+			  <div>
+				<input type="radio" id="Total" name="Controle" value="Total" />
+				<label for="Total">Controle Total</label>
+			  </div>
+
+			  <div>
+				<input type="radio" id="trocacao" name="Controle" value="trocacao" />
+				<label for="trocacao">Trocação</label>
+			  </div>
+			</fieldset>
+			<p>Porcentagem de posse de bola</p>
+			<div>
+  				<input type="range" id="volume" name="volume" min="0" max="100" value="50" step="10" />
+  				<label for="volume">Casa</label>
+			</div>
+
+			<div>
+ 				 <input type="range" id="cowbell" name="cowbell" min="0" max="100" value="50" step="10" />
+  				<label for="cowbell">Visitante</label>
+			</div>
+
+			
+
+    
+            
+        </div>
+		<div class="column">
+             <h2>Quebras de linhas</h2>
+			<fieldset>
+			  <legend>Selecione mais de 1 opção:</legend>
+			<input type="checkbox" id="Longo" name="Longo"/>
+   			<label for="Longo">Passe Longo </label> <br>  
+    		<input type="checkbox" id="Curto" name="Curto"/>
+			<label for="Curto">  Passe Curto&nbsp;&nbsp;</label><br>
+
+			<input type="checkbox" id="Dribles" name="Dribles"/>
+   			<label for="Dribles">Dribles</label>  	<br>
+			<input type="checkbox" id="Conjunto" name="Conjunto" />
+   			<label for="Conjunto">Conjunto de jogadas</label><br>
+		    <input type="checkbox" id="Mov" name="Mov"/>
+   			<label for="Mov">Movimentações</label><br>
+			<input type="checkbox" id="trio" name="trio" />
+   			<label for="trio">Triangulações</label><br>
+			
+		  </fieldset><br><br>
+
+		  	<label>Minutagem do Controle</label>
+				<select name="Minutagem">
+					<option value="op1">00-05 Minutos</option>
+					<option value="op2">10-15 Minutos</option>
+					<option value="op3">15-20 Minutos</option>
+					<option value="op4">20-25 Minutos</option>
+					<option value="op5">25-30 Minutos</option>
+					<option value="op6">30-35 Minutos</option>
+					<option value="op7">35-40 Minutos</option>
+					<option value="op8">40-45 Minutos</option>
+				</select>
+        </div>
+        
+</div>
+
+    <!-- Mais elementos conforme suas especificações -->
+
+    <div class="container">
+        <div class="column">
+            
+			<h2>Formatos de Marcação</h2>
+			<fieldset>
+			  <legend>Selecione apenas 1 opção:</legend>
+			  <div>
+				<input type="radio" id="bb" name="marcacao" value="bb" checked />
+				<label for="bb">Bloco Baixo</label>
+			  </div>
+
+			  <div>
+				<input type="radio" id="bm" name="marcacao" value="bm" />
+				<label for="bm">Bloco Médio </label>
+			  </div>
+
+			  <div>
+				<input type="radio" id="ba" name="marcacao" value="ba" />
+				<label for="ba">Bloco Alto</label>
+			  </div>
+			  <div>
+				<input type="radio" id="mb" name="marcacao" value="mb" />
+				<label for="mb">Bloco Médio/Baixo </label>
+			  </div>
+			  <div>
+				<input type="radio" id="ma" name="marcacao" value="ma" />
+				<label for="ma">Bloco Médio/Alto</label>
+			  </div>
+			</fieldset>
+            <!-- Opções de formatos de marcação aparecerão aqui -->
+        </div>
+
+        <div class="column">
+            
+			<h2>Marcacão</h2>
+			<fieldset>
+			  <legend>Selecione mais de 1 opção:</legend>
+			<input type="checkbox" id="mp" name="mp"/>
+   			<label for="mp">Marcação Passiva </label> <br>  
+    		<input type="checkbox" id="me" name="me"/>
+			<label for="me">Marcação por Encaixe </label><br>
+
+			<input type="checkbox" id="mea" name="mea"/>
+   			<label for="mea">Marcação por encaixe + Aceleração </label><br>
+			<input type="checkbox" id="8s" name="8s" />
+   			<label for="8s">Perde/Pressiona (8seg)</label><br>
+		    
+		  </fieldset>
+			<fieldset>
+			  <legend>Selecione apenas 2 opções:</legend>
+			  <div>
+				<input type="radio" id="lp" name="linhas" value="lp" checked />
+				<label for="lp">Linhas Próximas</label>
+			  </div>
+
+			  <div>
+				<input type="radio" id="ld" name="linhas" value="ld" />
+				<label for="ld">Linhas Distantes</label>
+			  </div><br>
+
+
+			  <div>
+				<input type="radio" id="bc" name="Bola" value="bc" checked />
+				<label for="bc">Bola Coberta</label>
+			  </div>
+
+			  <div>
+				<input type="radio" id="bd" name="Bola" value="bd" />
+				<label for="bd">Bola Descoberta</label>
+			  </div>
+
+			</fieldset>
+            <!-- Opções de marcação aparecerão aqui -->
+        </div>
+
+        <div class="column">
+             <h2>Aceleração</h2>
+			<fieldset>
+			  <legend>Selecione mais de 1 opção:</legend>
+			<input type="checkbox" id="pp" name="pp"/>
+   			<label for="pp">Perde/Pressiona (8seg) </label> <br>  
+    		<input type="checkbox" id="ap" name="ap"/>
+			<label for="ap"> Aceleração nos Passes (balanço)</label><br>
+
+			<input type="checkbox" id="mr" name="mr"/>
+   			<label for="mr">Mudança de Ritmo</label>  	<br>
+			<input type="checkbox" id="ae" name="ae" />
+   			<label for="ae">Aceleração com Encaixe</label><br>
+		    
+		  </fieldset>
+		<p><strong>Importante</strong>: Sempre que tiver dúvidas sobre sair ou não de uma posição, pergunte-se: "Eu faria entrada agora, neste ponto do jogo?" 
+		  </p>
+        </div>
+
+    </div>
+	<div class="container">
+		 <div class="column">
+            <label>Distribuição gratuita.</label><br>
+				<span class="esquerda2">Caso queira contribuir com nosso trabalho. <strong>Chave pix:</strong> 21-992259747</span>
+        </div>
+	</div>
+</body>
+</html>
+
